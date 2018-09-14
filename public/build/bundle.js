@@ -972,8 +972,8 @@ module.exports = defaults;
         email: this.email,
         password: this.password
       }).then(result => {
-        console.log(result.data);
-        result.data.rows < 1 ? alert('wrong email or password') : alert('you are logged in');
+        console.log('server response', result);
+        result.data < 1 ? alert('wrong email or password') : alert('you are logged in');
       }).catch(err => {
         console.log('returned error', err);
       });
