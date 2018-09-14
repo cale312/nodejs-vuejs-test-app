@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 // postgres databse connection
 // init db to connect to
-const dbConnection = process.env.DATABASE_URL || 'postgresql://aliencoder:@localhost:5432/grg_dashboard';
+const dbConnection = process.env.DATABASE_URL || 'postgresql://admin:iamgroot@localhost:5432/grg_dashboard';
 
 //axios.get('https://jsonplaceholder.typicode.com/todos/1').then( (data) => console.log('response', data)).catch(err => console.log(err));
 
@@ -27,7 +27,7 @@ const dbConnection = process.env.DATABASE_URL || 'postgresql://aliencoder:@local
 const pool = new Pool({ connectionString: dbConnection });
 
 // insert new user
-// pool.query(`INSERT INTO users(email, password) VALUES('jdoe@example.com', 201000)`, (err, res) => (err) ? console.log(chalk.red(err)) : console.log(chalk.green('data added')));
+pool.query(`INSERT INTO users(email_address, password) VALUES('jdoe@example.com', 201000)`, (err, res) => (err) ? console.log(chalk.red(err)) : console.log(chalk.green('data added')));
 
 const users = pool.query(`SELECT * FROM users`, (err, res) => (err) ? console.log('error loading data: ', err) : console.log(res.rows));
 
@@ -42,7 +42,7 @@ app.post('/login', async (req, res) => {
 
     console.log(theData)
 
-    let results = await pool.query(`SELECT * FROM users WHERE email = $1 AND password = $2`, theData);
+    let results = await pool.query(`SELECT * FROM users WHERE email_address = $1 AND password = $2`, theData);
 
     (results.rows < 1) ? console.log('name not exit') : console.log('user found', results.rows[0]);
 

@@ -23,14 +23,15 @@ export default {
   },
   methods: {
     login () {
-      axios.post('http://localhost:2000/login', {
+      axios.post('http://206.189.11.226:2000/login', {
         email: this.email,
         password: this.password
       })
       .then( (result) => {
         console.log(result.data);
-        (result.data.rows < 1) ? console.log('wrong email or password') : console.log('you are logged in');
+        (result.data.rows < 1) ? alert('wrong email or password') : alert('you are logged in');
       })
+      .catch( (err) => {console.log(err)});
     }
   }
 }

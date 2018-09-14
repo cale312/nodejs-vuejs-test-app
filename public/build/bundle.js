@@ -905,7 +905,6 @@ module.exports = defaults;
 //
 //
 //
-//
 
 
 
@@ -968,12 +967,14 @@ module.exports = defaults;
   },
   methods: {
     login() {
-      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('http://localhost:2000/login', {
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('http://206.189.11.226:2000/login', {
         email: this.email,
         password: this.password
       }).then(result => {
         console.log(result.data);
-        result.data.rows < 1 ? console.log('wrong email or password') : console.log('you are logged in');
+        result.data.rows < 1 ? alert('wrong email or password') : alert('you are logged in');
+      }).catch(err => {
+        console.log(err);
       });
     }
   }
@@ -10842,7 +10843,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -12047,7 +12048,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("hello-world"), _vm._v(" "), _c("login")], 1)
+  return _c("div", [_c("login")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
