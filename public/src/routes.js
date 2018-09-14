@@ -1,5 +1,5 @@
 import Login from './components/Login.vue';
-import DashBoard from './components/DashBoard.vue';
+import DashBoard from './components/Dashboard.vue';
 
 export default [
     {
