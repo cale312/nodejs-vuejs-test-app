@@ -11,10 +11,5 @@ export default [
         path: '/dashboard',
         name: 'dashboard',
         component: DashBoard
-    },
-    {
-        path: '/logout',
-        name: 'logout',
-        component: DashBoard
     }
 ]
