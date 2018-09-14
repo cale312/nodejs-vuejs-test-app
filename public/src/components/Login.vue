@@ -17,13 +17,14 @@ export default {
   name: 'Login',
   data () {
     return {
+      port: 'http://' + location.hostname + ':2000',
       email: '',
       password: ''
     }
   },
   methods: {
     login () {
-      axios.post('http://206.189.11.226:2000/login', {
+      axios.post(this.port + '/login', {
         email: this.email,
         password: this.password
       })

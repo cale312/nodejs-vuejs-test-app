@@ -961,13 +961,14 @@ module.exports = defaults;
   name: 'Login',
   data() {
     return {
+      port: 'http://' + location.hostname + ':2000',
       email: '',
       password: ''
     };
   },
   methods: {
     login() {
-      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('http://206.189.11.226:2000/login', {
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post(this.port + '/login', {
         email: this.email,
         password: this.password
       }).then(result => {
