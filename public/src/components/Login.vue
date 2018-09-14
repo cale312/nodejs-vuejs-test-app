@@ -32,7 +32,7 @@ export default {
         console.log(result.data);
         (result.data.rows < 1) ? alert('wrong email or password') : alert('you are logged in');
       })
-      .catch( (err) => {console.log(err)});
+      .catch( (err) => {console.log('returned error', err)});
     }
   }
 }

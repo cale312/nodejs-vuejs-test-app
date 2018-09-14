@@ -35,6 +35,7 @@ pool.query(`SELECT * FROM users`, (err, res) => (err) ? console.log('error loadi
 app.get('/', (req, res) => { res.sendfile('./public/index.html') });
 
 app.post('/login', async (req, res) => {
+    var results = '';
     let data = req.body;
     console.log(data);
     let theData = [];
@@ -43,11 +44,13 @@ app.post('/login', async (req, res) => {
 
     console.log(theData)
 
-    let results = await pool.query(`SELECT * FROM users WHERE email_address = $1 AND password = $2`, theData);
+    await pool.query(`SELECT * FROM users WHERE email_address = $1 AND password = $2`, theData, async (err, res) => {
 
-    (results.rows < 1) ? console.log('name not exit') : console.log('user found', results.rows[0]);
+        (res.rows < 1 || err) ? await console.log('name not exit', err) : await  console.log('user found', res.rows[0]);
+	results = res;
 
-    await res.json(results);
+    });
+    await res.send(results);
 })
 
 // morgan logger middleware
