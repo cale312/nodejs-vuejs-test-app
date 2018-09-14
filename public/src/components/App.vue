@@ -1,6 +1,5 @@
 <template>
   <div>
-    <hello-world></hello-world>
     <login></login>
   </div>
 </template>

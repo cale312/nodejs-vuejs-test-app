@@ -1,23 +1,25 @@
 {
-  "name": "testing",
-  "version": "1.0.0",
-  "description": "postgres database connection test",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "build": "webpack"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
+    "name": "testing",
+    "version": "1.0.0",
+    "description": "postgres database connection test",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js",
+        "build": "webpack",
+        "watch": "webpack --config ./node_modules/@vue/cli-service/webpack.config.js --watch"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
         "axios": "^0.16.2",
         "body-parser": "^1.5.2",
         "bootstrap": "^4.0.0-beta.2",
-        "express": "~4.7.2",
-        "method-override": "~2.1.2",
-        "mongoose": "~4.0.0",
+        "express": "^4.16.3",
+        "method-override": "^3.0.0",
+        "mongoose": "^5.2.14",
         "morgan": "^1.9.0",
+        "pg": "^7.4.3",
         "vue": "^2.5.11",
         "vue-axios": "^2.0.2"
     },

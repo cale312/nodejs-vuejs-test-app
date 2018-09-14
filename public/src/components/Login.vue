@@ -11,6 +11,8 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
+
 export default {
   name: 'Login',
   data () {
@@ -21,8 +23,14 @@ export default {
   },
   methods: {
     login () {
-      console.log(this.email)
-      console.log(this.password)
+      axios.post('http://localhost:2000/login', {
+        email: this.email,
+        password: this.password
+      })
+      .then( (result) => {
+        console.log(result.data);
+        (result.data.rows < 1) ? console.log('wrong email or password') : console.log('you are logged in');
+      })
     }
   }
 }
